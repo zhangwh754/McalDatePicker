@@ -8,25 +8,28 @@
 <script src="Mcal.js"></script>
 </head>
 <body>
-<style>
+<!-- <style >
         .Mcal{
             display: none;
             position: absolute;
             top:0;
             left:0;
-            width:200px;
+            color:#333;
+            min-width:100px;
             border-radius: 5px;
-            border:1px solid #eee;
+            overflow: hidden;
             box-shadow: 2px 2px 2px #eee;
         }
         .Mcal-year{
             height:30px;
             line-height: 30px;
             font-size: 14px;
-            color:#333;
             border-bottom: 1px solid #eee;
+            background: #FA8025;
+            color:#fff;
             text-align: center;
             position: relative;
+            border:1px solid #FA8025;
         }
         .Mcal-year .pre-year,.Mcal-year .next-year{
             width:30px;
@@ -53,6 +56,9 @@
             text-align: center;
             width:100%;
             height:100%;
+            background:#fff;
+            border:1px solid #eee;
+            border-radius:5px;
         }
         .Mcal-Months li{
             color:#333;
@@ -67,7 +73,7 @@
             color:#eee;
             cursor: no-drop;
         }
-    </style>
+    </style> -->
     <!-- <div class="Mcal">
         <div class="Mcal-year">
             <div class="btn-year pre-year"></div>
@@ -93,6 +99,7 @@
     <script>
         $(function(){
             $('#cal').Mcal({
+                dateFormat:'dateFormat',
                 minDate:'2017/05',
                 maxDate:'2018/12'
             })
