@@ -10,10 +10,12 @@
  * @param   minDate  '1990-01-01'
  * @param   maxDate
  * @param   dateFormat 'yyyy-mm 或者 yyyy/mm'
+ * @param   onChange  '选择后的回调'
  * demo:
  *    $('#cal').Mcal({
         minDate:'2017/05',
-        maxDate:'2018/12'
+        maxDate:'2018/12',
+        onChange:function(){}
     })
  */
 $.fn.Mcal = function(options) {
@@ -47,7 +49,6 @@ $.fn.Mcal = function(options) {
         $cal.css({
             top:$input.offset().top + $input.outerHeight() + 3,
             left:$input.offset().left,
-            width:$input.outerWidth()
         });
     }
     //减年份
@@ -73,6 +74,9 @@ $.fn.Mcal = function(options) {
         show_month = $(this).attr('data-val');
         $input.val(show_year+'-'+show_month);
         $cal.slideUp(200);
+        if(typeof  options.onChange== 'function'){
+            options.onChange.call($input);
+        }
     });
     //设置禁止点击
     function setDisabledMonth(){
