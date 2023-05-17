@@ -1,109 +1,41 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<title>月历选择器</title>
-<meta name="keywords" content="jquery" />
-<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-<script src="Mcal.js"></script>
-</head>
-<body>
-<!-- <style >
-        .Mcal{
-            display: none;
-            position: absolute;
-            top:0;
-            left:0;
-            color:#333;
-            min-width:100px;
-            border-radius: 5px;
-            overflow: hidden;
-            box-shadow: 2px 2px 2px #eee;
-        }
-        .Mcal-year{
-            height:30px;
-            line-height: 30px;
-            font-size: 14px;
-            border-bottom: 1px solid #eee;
-            background: #FA8025;
-            color:#fff;
-            text-align: center;
-            position: relative;
-            border:1px solid #FA8025;
-        }
-        .Mcal-year .pre-year,.Mcal-year .next-year{
-            width:30px;
-            height:30px;
-            position: absolute;
-            top:0;
-            cursor: pointer;
-            background-size:50%;
-            background-repeat: no-repeat;
-            background-position: center;
-        }
-        .Mcal-year .pre-year{
-            left:0;
-            background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA6ElEQVRYR9XXXQ7CIAwHcDiBeAN5oM8eSW+mJ9Fz8FIPQlJDshjnPigbLXGvI/x/oaHdrOn82M755n8BiHjKp+e9f+05xU0nEGM8W2sfOTiEcFQFfIU7IroDwEUN0Do8w9klkAhnA6TCWQDJ8CJAOnwVoBG+CNAKnwVohk8A2uEjACK6lBIaY5p0OG53/DSiAZAHy4GIbgBw5W6yZ92oEw4leGoiJq1YGzE7CzQRi8NIC7E6DTUQxXEsjSgC8hWTRLAAkgg2QApRBZBAVAN+EPmz3DVrxTUbdf0xqYGW1m4qQWnTmvfdAW+Xz8YhHJFj1gAAAABJRU5ErkJggg==);
-        }
-        .Mcal-year .next-year{
-            right:0;
-            background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA2klEQVRYR+XXwQ3CMAxAUWeY+MwIjFI2gElgA2ASVuBsDxMUCaTSQ2s7NlFLj1Wl/+RISZqg85M692EbACLaIeLTMs3mCTDzEQDOpZQbIh60CA/AHgAeNWxBNANqmIiGlNLVgnABtCDcAFaEK8CCcAdoESEADSIMIEWEAiSIcMAS4ieAKQIATjnnS33/H4DJVn1HxOFzaIVPYC4evgRL8VCAJB4GkMZDAJq4O0AbdwVY4m4Aa9wFwMzjS+nXJiO5ITdvRKNruTruMoH3QdPvx0Qy5rlvmpdg9YAX88PCIUoA0kEAAAAASUVORK5CYII=);
-        }
-        .Mcal-Months{
-            padding:0;
-            margin: 0;
-            font-size: 0;
-            text-align: center;
-            width:100%;
-            height:100%;
-            background:#fff;
-            border:1px solid #eee;
-            border-radius:5px;
-        }
-        .Mcal-Months li{
-            color:#333;
-            cursor: pointer;
-            font-size:12px;
-            display: inline-block;
-            width:25%;
-            height:30px;
-            line-height: 30px;
-        }
-        .Mcal-Months li.disabled{
-            color:#eee;
-            cursor: no-drop;
-        }
-    </style> -->
-    <!-- <div class="Mcal">
-        <div class="Mcal-year">
-            <div class="btn-year pre-year"></div>
-            <span class="year">2018</span>年
-            <div class="btn-year next-year"></div>
-        </div>
-        <ul class="Mcal-Months">
-            <li data-val="01" class="month-item"><span>1月</span></li>
-            <li data-val="02" class="month-item"><span>2月</span></li>
-            <li data-val="03" class="month-item"><span>3月</span></li>
-            <li data-val="04" class="month-item"><span>4月</span></li>
-            <li data-val="05" class="month-item"><span>5月</span></li>
-            <li data-val="06" class="month-item"><span>6月</span></li>
-            <li data-val="07" class="month-item"><span>7月</span></li>
-            <li data-val="08" class="month-item"><span>8月</span></li>
-            <li data-val="09" class="month-item"><span>9月</span></li>
-            <li data-val="10" class="month-item"><span>10月</span></li>
-            <li data-val="11" class="month-item"><span>11月</span></li>
-            <li data-val="12" class="month-item"><span>12月</span></li>
-        </ul>
-    </div> -->
-    <input type="text" id="cal" placeholder="请选择出生日期">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <title>月历选择器</title>
+    <meta name="keywords" content="jquery" />
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="Mcal.js"></script>
+  </head>
+  <body>
+    <button id="date">button</button>
     <script>
-        $(function(){
-            $('#cal').Mcal({
-                dateFormat:'dateFormat',
-                minDate:'2017/05',
-                maxDate:'2018/12'
-            })
+      $(function () {
+        initDatePicker()
+      })
+
+      /**
+       * @description: 初始化年月选择器
+       */
+      function initDatePicker() {
+        const currentDate = new Date()
+        const year = currentDate.getFullYear()
+        const month = (currentDate.getMonth() + 1).toString().padStart(2, '0')
+        const formattedDate = `${year}/${month}`
+
+        $('#date').Mcal({
+          dateFormat: 'dateFormat',
+          minDate: '2000/01',
+          maxDate: formattedDate,
+          onChange: ([year, month]) => {
+            console.log(year, month)
+          },
         })
+      }
     </script>
-</body>
+  </body>
 </html>
